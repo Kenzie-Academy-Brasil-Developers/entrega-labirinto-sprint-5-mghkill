@@ -14,7 +14,7 @@ let inicio = false
         }
     }
     document.addEventListener('keydown', game);
-
+    
 
     const main = document.getElementById('main')
 
@@ -97,7 +97,8 @@ let inicio = false
                     pai.appendChild(player)
                 }
                 if(podeMudarBox(pai) === 1){
-                    console.log('Winner')
+                    inicio = undefined
+                    document.getElementById('modal-vitoria').classList.add('mostrar')
                 }
             }
             if(value === "ArrowLeft" && podeMudarBox(limparCodigo(String(Number(idPosicao) - 1)))){
@@ -107,7 +108,8 @@ let inicio = false
                     pai.appendChild(player)
                 }
                 if(podeMudarBox(pai) === 1){
-                    console.log('Winner')
+                    inicio = undefined
+                    document.getElementById('modal-vitoria').classList.add('mostrar')
                 }
             }
             if(value === "ArrowUp" && podeMudarBox(limparCodigo(String(Number(idPosicao) - 21)))){
@@ -117,7 +119,8 @@ let inicio = false
                     pai.appendChild(player)
                 }
                 if(podeMudarBox(pai) === 1){
-                    console.log('Winner')
+                    inicio = undefined
+                    document.getElementById('modal-vitoria').classList.add('mostrar')
                 }
             }
             if(value === "ArrowDown" && podeMudarBox(limparCodigo(String(Number(idPosicao) + 21)))){
@@ -127,7 +130,8 @@ let inicio = false
                     pai.appendChild(player)
                 }
                 if(podeMudarBox(pai) === 1){
-                    console.log('Winner')
+                    inicio = undefined
+                    document.getElementById('modal-vitoria').classList.add('mostrar')
                 }
             }
         }
@@ -156,3 +160,18 @@ let inicio = false
             return 1
         }
     }
+
+
+    const restart = () => {
+        idPosicao = "189"
+        document.getElementById("189").appendChild(player)
+        inicio = false
+        document.getElementById('modal-vitoria').classList.remove('mostrar')
+        
+    }
+
+
+const button = document.getElementById('button')
+
+    button.addEventListener("click", restart);
+
